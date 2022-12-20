@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//import './App.css';
+import { Component } from 'react';
+//import {Saludar} from './components/Saludar'
+import Menu from "./components/Menu"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import PageDeportes from './components/PageDeportes';
+import PageEquipos from './components/PageEquipos';
+import PageEventos from './components/PageEventos';
+import PageInicio from './components/PageInicio';
+import PageSesion from './components/PageSesion';
+import PageUsuarios from './components/PageUsuarios';
+
+
+class App extends Component {
+
+  render() {
+    return (
+      <>
+        <Router>
+          <Menu />
+          <Routes>
+            <Route path="/" element={<PageInicio />}/>
+            <Route path="/PageInicio" element={<PageInicio />}/>
+            <Route path="/PageDeportes" element={<PageDeportes />}/>
+            <Route path="/PageEquipos" element={<PageEquipos />}/>
+            <Route path="/PageEventos" element={<PageEventos />}/>
+            <Route path="/PageSesion" element={<PageSesion />}/>
+            <Route path="/PageUsuarios" element={<PageUsuarios />}/>
+          </Routes>
+        </Router>
+
+      </>
+    );
+  }
 }
-
+// {Saludar()}
 export default App;
